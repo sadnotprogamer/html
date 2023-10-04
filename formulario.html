@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head> 
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="author" content="Akuma">
+        <meta name="description" content="Tutorial html">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>&#000; FORMULARIO &#000;</title>
+    </head>
+    
+    <body style="background-color: pink; border: 8px solid green;"> 
+        <form style="background-color: white;">
+        <fieldset>
+            <table>
+                    <legend>Datos personales</legend>
+                    <tr>
+                    <td><label>Apellidos:</label></td>
+                    <td><label>Nombre:</label></td>
+                    <td><label>DNI:</label></td>
+                    </tr>
+
+                    <tr>
+                        <td><input type="text"  id="apellidos" name="apellidos" required></td>
+                        <td><input type="text"  id="nombre" name="nombre" required></td>
+                        <td><input type="text" id="dni" name="dni" pattern="(([X-Z]{1})([-]?)(\d{7})([-
+                            ]?)([A-Z]{1}))|((\d{8})([-]?)([A-Z]{1}))" required></td>
+                    </tr>
+
+                    <tr>
+                        <td><label>Nacido/a en:</label></td>
+                        <td><label>Provincia:</label></td>
+                        <td><label>Fecha nacimento (dd/mm/aaaa):</label></td>
+                    </tr>
+
+                    <tr>
+                        <td><input type="text"  id="nacido" name="nacido"></td>
+                        <td><input list="Provincias" name="Provincia" id="Provincia">
+                            <datalist id="Provincias">
+                            <option value="Madrid">
+                            <option value="Barcelona">
+                            <option value="Badajoz">
+                            <option value="Cáceres">
+                            <option value="Ourense"></td>
+                        <td><input id="fechayhora" name="fechayhora" type="datetime"></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2"><label>Domicilio (calle,plaza y número):</label></td>
+                        <td><label>Código postal:</label></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2"><input type="text"  id="calle" name="calle"></td>
+                        <td><input type="text"  id="codigop" name="codigop"></td>
+                    </tr>
+
+                    <tr>
+                        <td><label>Localidad</label></td>
+                        <td><label>Provincia:</label></td>
+                        <td><label>Teléfono:</label></td>
+                    </tr>
+
+                    <tr>
+                        <td><input type="text"  id="local" name="local"></td>
+                        <td><input list="Provincias1" name="Provincia1" id="Provincia1">
+                            <datalist id="Provincias1">
+                            <option value="Madrid">
+                            <option value="Barcelona">
+                            <option value="Badajoz">
+                            <option value="Cáceres">
+                            <option value="Ourense"></td>
+                        <td><input type="text"  id="telf" name="telf"></td>
+                    </tr>
+            </table>
+        </fieldset>
+        <fieldset>
+            
+                    <legend>Solicitud</legend>
+                    <p>El/la que subscribe desea ser admitido en este centro para cursar el ciclo formativo de grado superior</p>
+
+                    <input list="Ciclos" name="Ciclo" id="Ciclo">
+                            <datalist id="Ciclos">
+                            <option value="ASIR">
+                            <option value="DAW">
+                            <option value="DAM">
+                    </datalist>
+
+                    <p>En caso de no ser admitido/a, solicita la admisión por orden de preferencia en los siguientes</p>
+
+                    <table>
+                        <tr>
+                            <th><label>Ciclos formativos</label></th>
+                            <th><label>Centro</label></th>
+                            <th><label>Localidad</label></th>
+                        </tr>
+
+                        <tr>
+                            <td><input type="text" name="Ciclo1" id="Ciclo1"></td>
+                            <td><input type="text" name="Centro1" id="Centro1"></td>
+                            <td><input type="text" name="Localidad1" id="Localidad1"></td>
+                        </tr>
+
+                        <tr>
+                            <td><input type="text" name="Ciclo2" id="Ciclo2"></td>
+                            <td><input type="text" name="Centro2" id="Centro2"></td>
+                            <td><input type="text" name="Localidad2" id="Localidad2"></td>
+                        </tr>
+                    </table>
+                    
+                    <p>Modalidad de horario especial (marque): <input type="checkbox"></p>
+        </fieldset>
+
+        <fieldset>
+            <Legend>Documentación presentada</Legend>
+
+            <p><input type="checkbox" name="DNI" id="DNI"> Fotocopia DNI
+            <input type="checkbox" name="Certificado académico" id="Certificado"> Certificado académico</p>
+            
+            <p><input type="checkbox" name="Otro" id="Otro"> Otros documentos: <input type="text" id="Otro2"></p>
+        </fieldset>
+        <center>
+        <input type="submit" id="submit"><br><br>
+        </center>
+    </form>
+    </body>
+    
+    <p>Comprobación</p>
+    
+    <!--Comprobación apellidos-->
+    <input type="text" name="Apellidosver" id="Apellidosver">
+        <script>
+            const rango1 = document.getElementById("Apellidos")
+            const numero1 = document.getElementById("Apellidosver")
+            rango.onchange = function(){
+            numero.value = rango.value;
+            }
+        </script>
+
+    <input type="list" name="Provinciaver" id="Provinciaver">
+        <script>
+            const rango2 = document.getElementById("Provincias1")
+            const numero2 = document.getElementById("Provinciaver")
+            rango.onchange = function(){
+            numero.value = rango.value;
+            }
+        </script>
+
+    <input type="datetime" name="fechaver" id="fechaver">
+        <script>
+            const rango3 = document.getElementById("fechayhora")
+            const numero3 = document.getElementById("fechaver")
+            rango.onchange = function(){
+            numero.value = rango.value;
+            }
+        </script>
+    
+    <input type="checkbox" name="checkver" id="checkver">
+        <script>
+            const rango = document.getElementById("Otro")
+            const numero = document.getElementById("checkver")
+            rango.onchange = function(){
+            numero.value = rango.value;
+            }
+            </script>
