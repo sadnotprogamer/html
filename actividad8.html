@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head> 
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="author" content="Akuma">
+        <meta name="description" content="Tutorial html">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>&#000; Ejercicio 8 &#000;</title>
+    </head>
+    <body> 
+        <center>
+            <h1>FORMULARIO</h1>
+        </center> 
+        <!--BARRA CON CAMBIOS-->
+        <label for="rango">¿Cuan disgustado está usted con la experiencia?</label>
+        <input type="range" min="0" max="10" step="1" name="rango" id="rango">
+        <input type="number" id="numero" name="numero">
+        <script>
+        const rango = document.getElementById("rango")
+        const numero = document.getElementById("numero")
+        rango.onchange = function(){
+        numero.value = rango.value;
+        }
+        </script>
+
+        <!--DIFERENTES FORMAS DE TIEMPO-->
+        <BR><BR>
+        <label for="fechayhoralocal">¿Qué día se dio cuenta de la necesidad de ver formularios?</label>
+        <input id="fechayhoralocal" name="fechayhoralocal"
+        type="datetime-local">
+        
+        <!--ESCOGER COLOR DE FONDO-->
+        <br><br>
+        <label for="colorfd">Elegir color de fondo</label>
+        <input id="colorfd" name="colorfd" type="color">
+
+        <!--DATALIST-->
+        <br><br>
+        <form action="gestiona.php" method="get">
+            <label for="dia">Elige tu día de la semana:</label>
+            <input list="dias" name="dia" id="dia">
+            <datalist id="dias">
+            <option value="Lunes">
+            <option value="Martes">
+            <option value="Miércoles">
+            <option value="Jueves">
+            <option value="Viernes">
+            <option value="Sábado">
+            <option value="Domingo">
+            </datalist>
+        </form>
+
+        <!--PATTERN (DNI)-->
+        <br><br>
+        <form action="gestiona_datos.php">
+            <label for="dni">DNI:</label>
+            <input type="text" id="dni" name="dni" pattern="(([X-Z]{1})([-]?)(\d{7})([-
+            ]?)([A-Z]{1}))|((\d{8})([-]?)([A-Z]{1}))" title="Debes incluir un DNI correcto
+            con 9 números y la letra en mayúscula"><br><br>
+        </form>
+
+        <!--AUTOFOCUS CON PLACEHOLDER-->
+        <br>
+        <label>Nombre: </label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre aquí">
+            <br><br>
+            <label>Apellidos: </label>
+            <input type="text" id="Apellidos" name="Apellidos" placeholder="Tus apellidos aquí">
+        
+        <!---->
+        <br><br>
+        <form action="cambia.php" method="post" name="login">
+            <label for="usuario">Usuario: </label> <input type="text" name="usuario"
+            id="usuario" required><br><br>
+            <label for="clave">Clave: </label><input type="password" name="clave"
+            id="clave" required><br>
+    </body>
